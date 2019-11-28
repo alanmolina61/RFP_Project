@@ -1,6 +1,6 @@
 using System;
 
-namespace Web_SQL.Models
+namespace Web_SQL.Models.ViewModels
 {
     public class ErrorViewModel
     {

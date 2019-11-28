@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Web_SQL.Models;
+using Web_SQL.Models.ViewModels;
 
 namespace Web_SQL.Controllers
 {
@@ -21,7 +21,7 @@ namespace Web_SQL.Controllers
 
             return View();
         }
-
+                    
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";
