@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Web_SQL.Models;
 
 namespace Web_SQL
 {
@@ -33,6 +35,10 @@ namespace Web_SQL
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddDbContext<Web_SQLContext>(options =>
+            options.UseMySql(Configuration.GetConnectionString("Web_SQLContext"), builder =>
+            builder.MigrationsAssembly("Web_SQL")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
