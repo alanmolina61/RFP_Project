@@ -21,7 +21,7 @@ namespace Web_SQL.Controllers
         // GET: Departaments
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Departament.ToListAsync());
+            return View(await _context.Departaments.ToListAsync());
         }
 
         // GET: Departaments/Details/5
@@ -32,7 +32,7 @@ namespace Web_SQL.Controllers
                 return NotFound();
             }
 
-            var departament = await _context.Departament
+            var departament = await _context.Departaments
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (departament == null)
             {
@@ -72,7 +72,7 @@ namespace Web_SQL.Controllers
                 return NotFound();
             }
 
-            var departament = await _context.Departament.FindAsync(id);
+            var departament = await _context.Departaments.FindAsync(id);
             if (departament == null)
             {
                 return NotFound();
@@ -123,7 +123,7 @@ namespace Web_SQL.Controllers
                 return NotFound();
             }
 
-            var departament = await _context.Departament
+            var departament = await _context.Departaments
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (departament == null)
             {
@@ -138,15 +138,15 @@ namespace Web_SQL.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var departament = await _context.Departament.FindAsync(id);
-            _context.Departament.Remove(departament);
+            var departament = await _context.Departaments.FindAsync(id);
+            _context.Departaments.Remove(departament);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool DepartamentExists(int id)
         {
-            return _context.Departament.Any(e => e.Id == id);
+            return _context.Departaments.Any(e => e.Id == id);
         }
     }
 }

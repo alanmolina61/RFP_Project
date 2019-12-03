@@ -13,6 +13,8 @@ namespace Web_SQL.Models
         {
         }
 
-        public DbSet<Web_SQL.Models.Departament> Departament { get; set; }
+        public DbSet<Departament> Departaments { get; set; }
+        public DbSet<Seller> Seller { get; set; }
+        public DbSet<SalesRecord> Sales { get; set; }
     }
 }
